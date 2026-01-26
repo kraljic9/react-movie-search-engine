@@ -17,7 +17,9 @@ function Movie() {
 
         const data = await response.json();
 
-        const results = data.results;
+        const results = data;
+
+        console.log(results);
 
         setMovieData(results);
       } catch (err) {
@@ -29,16 +31,33 @@ function Movie() {
     }
 
     fetchMovieData(
-      `https://api.themoviedb.org/3/movie/popular?api_key=6982f06948c4946d1b29bd29e9fcab06`,
+      `https://api.themoviedb.org/3/movie/${id}?api_key=6982f06948c4946d1b29bd29e9fcab06`,
     );
 
-    return () => console.log("Stopped fetching movie data");
-  }, []);
+    return () => {
+      console.log("Stopped fetching movie data");
+      console.log("Componant umounted");
+    };
+  }, [id]);
+  function renderGenres() {
+    return movieData?.genres?.map((genre) => (
+      <span key={genre.id}>{genre.name}</span>
+    ));
+  }
 
   return (
     <>
-      <h1>Movie</h1>
-      <p>Movie page</p>
+      <img
+        src={`https://image.tmdb.org/t/p/w500${movieData?.poster_path}`}
+        alt={movieData?.title}
+      />
+
+      <h1>{movieData?.title}</h1>
+      <p>{movieData?.overview}</p>
+      <p>{movieData?.release_date}</p>
+      <p>{movieData?.popularity} views</p>
+
+      <div>{renderGenres()}</div>
     </>
   );
 }
