@@ -1,3 +1,15 @@
+//Home page OK!
+//Search input (controlled component)
+//Fetch movies from an API (OMDb or TMDB) OK!
+//Loading state OK!
+//Error state OK!
+//Movie list OK!
+//Click movie → dynamic route /movies/:id OK!
+//Single movie fetch
+//404 handling
+//Back navigation
+//AbortController on route change
+
 import { useEffect, useState } from "react";
 import MovieCard from "../componants/MovieCard";
 import { Link } from "react-router-dom";
@@ -31,6 +43,10 @@ function Movies() {
 
     return () => console.log("Stopped fetching data");
   }, []);
+
+  if (loading) return <h1>Loading...</h1>;
+
+  if (error) return <h1>Error accured: {error}</h1>;
 
   return (
     <>
