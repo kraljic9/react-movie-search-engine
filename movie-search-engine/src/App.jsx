@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import Movies from "./pages/Movies";
 import Favourites from "./pages/Favourites";
 import NotFound from "./NotFound";
+import Movie from "./componants/Movie";
 
 function App() {
   return (
