@@ -11,7 +11,7 @@ function NavBar() {
         <input type="text" className="search-movies-input" />
 
         <div className="links">
-          <Link to="home">Home</Link>
+          <Link to="movies">Movies</Link>
           <Link to="favourites">Favourites</Link>
         </div>
       </nav>
