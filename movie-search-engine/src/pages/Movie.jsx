@@ -45,6 +45,10 @@ function Movie() {
     ));
   }
 
+  if (loading) return <h1>Loading...</h1>;
+
+  if (error) return <h1>Error accured {error}</h1>;
+
   return (
     <>
       <img
