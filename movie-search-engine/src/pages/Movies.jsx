@@ -1,17 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MovieCard from "../componants/MovieCard";
 import { Link } from "react-router-dom";
 
 function Movies() {
-  const [moviesList, setMoviesList] = useState([
-    { id: 1, title: "The Matrix", year: 1999 },
-    { id: 2, title: "Inception", year: 2010 },
-    { id: 3, title: "Interstellar", year: 2014 },
-    { id: 4, title: "The Dark Knight", year: 2008 },
-    { id: 5, title: "Fight Club", year: 1999 },
-  ]);
+  const [moviesList, setMoviesList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchMovies(url) {
+      try {
+        const response = await fetch(url);
+
+        if (!response.ok) throw new Error("Error accured while fetching data");
+
+        const data = await response.json();
+
+        setMoviesList(data.results);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchMovies(
+      "https://api.themoviedb.org/3/movie/popular?api_key=6982f06948c4946d1b29bd29e9fcab06",
+    );
+
+    return () => console.log("Stopped fetching data");
+  }, []);
 
   return (
     <>
