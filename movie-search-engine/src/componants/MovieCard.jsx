@@ -1,4 +1,10 @@
+import { useContext, useState } from "react";
+import { FavouriteContext } from "../FavouriteContext";
+
 function MovieCard({ movie }) {
+  const [isFavourite, setIsFavourite] = useState(false);
+  const { favouritesList, setFavourites } = useContext(FavouriteContext);
+
   return (
     <div className="movie-container">
       <img
