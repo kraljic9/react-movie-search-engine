@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Layout from "./Layout";
-import Home from "./pages/Home";
+import Movies from "./pages/Movies";
 import Favourites from "./pages/Favourites";
 import NotFound from "./NotFound";
 
@@ -11,7 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<p>Welcome and enjoy our moives!</p>} />
-          <Route path="home" element={<Home />} />
+          <Route path="movies" element={<Movies />} />
+          <Route path="movies/:id" element={<Movie />} />
           <Route path="favourites" element={<Favourites />} />
         </Route>
         <Route path="*" element={<NotFound />}></Route>
