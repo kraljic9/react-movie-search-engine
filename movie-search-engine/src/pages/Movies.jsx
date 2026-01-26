@@ -1,20 +1,9 @@
-//Home page OK!
-//Search input (controlled component)
-//Fetch movies from an API (OMDb or TMDB) OK!
-//Loading state OK!
-//Error state OK!
-//Movie list OK!
-//Click movie → dynamic route /movies/:id OK!
-//Single movie fetch
-//404 handling
-//Back navigation
-//AbortController on route change
-
 import { useEffect, useState } from "react";
 import MovieCard from "../componants/MovieCard";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 
 function Movies() {
+  const { search } = useOutletContext();
   const [moviesList, setMoviesList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -38,7 +27,7 @@ function Movies() {
     }
 
     fetchMovies(
-      "https://api.themoviedb.org/3/movie/popular?api_key=6982f06948c4946d1b29bd29e9fcab06",
+      `https://api.themoviedb.org/3/movie/popular?api_key=6982f06948c4946d1b29bd29e9fcab06`,
     );
 
     return () => console.log("Stopped fetching data");
@@ -48,10 +37,14 @@ function Movies() {
 
   if (error) return <h1>Error accured: {error}</h1>;
 
+  const filteredMovies = moviesList.filter((movie) =>
+    movie.title.toLowerCase().includes(search.toLowerCase()),
+  );
+
   return (
     <>
       <div className="movies-container">
-        {moviesList.map((movie) => {
+        {filteredMovies.map((movie) => {
           return (
             <Link
               key={movie.id}
