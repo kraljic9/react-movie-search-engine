@@ -6,8 +6,8 @@ function MovieCard({ movie }) {
         <button className="addToFavourites-btn">♡</button>
       </div>
       <div className="movie-info">
-        <p className="movie-title">Movie Title</p>
-        <p className="movie-year">Movie Year</p>
+        <p className="movie-title">{movie.title}</p>
+        <p className="movie-year">{movie.year}</p>
       </div>
     </div>
   );
