@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function NavBar() {
+function NavBar({ search, setSearch }) {
   return (
     <>
       <nav>
@@ -8,7 +8,13 @@ function NavBar() {
           <p>Movie Search Engine</p>
         </div>
 
-        <input type="text" className="search-movies-input" />
+        <input
+          type="text"
+          className="search-movies-input"
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+          placeholder="Search movies..."
+        />
 
         <div className="links">
           <Link to="movies">Movies</Link>
