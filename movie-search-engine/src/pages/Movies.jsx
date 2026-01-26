@@ -1,4 +1,6 @@
 import { useState } from "react";
+import MovieCard from "../componants/MovieCard";
+import { Link } from "react-router-dom";
 
 function Movies() {
   const [moviesList, setMoviesList] = useState([
@@ -13,7 +15,19 @@ function Movies() {
 
   return (
     <>
-      <h1>Home Page</h1>
+      <div className="movies-container">
+        {moviesList.map((movie) => {
+          return (
+            <Link
+              key={movie.id}
+              className="movie-path"
+              to={`/movies/${movie.id}`}
+            >
+              <MovieCard movie={movie} />
+            </Link>
+          );
+        })}
+      </div>
     </>
   );
 }
