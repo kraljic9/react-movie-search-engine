@@ -14,11 +14,13 @@ function MovieCard({ movie }) {
   return (
     <div className="movie-container">
       <Link to={`/movies/${movie.id}`} className="Movie-link">
-        <img
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-          alt=""
-          className="movie-img"
-        />
+        <div className="img-container">
+          <img
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            alt=""
+            className="movie-img"
+          />
+        </div>
 
         <div className="movie-info">
           <p className="movie-title">{movie.title}</p>
@@ -26,11 +28,10 @@ function MovieCard({ movie }) {
         </div>
       </Link>
 
-      <div className="movie-wrapper">
-        <button className="addToFavourites-btn" onClick={handleToggleFav}>
-          {isFavourite ? "❤️" : "♡"}
-        </button>
-      </div>
+      <button className="addToFavourites-btn" onClick={handleToggleFav}>
+        {isFavourite ? "❤️" : "🤍"}
+      </button>
+      <div className="movie-wrapper"></div>
     </div>
   );
 }
