@@ -1,10 +1,15 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { FavouriteContext } from "../FavouriteContext";
 import { Link } from "react-router-dom";
 
 function MovieCard({ movie }) {
-  const [isFavourite, setIsFavourite] = useState(false);
-  const { favouritesList, setFavourites } = useContext(FavouriteContext);
+  const { favouritesList, toggleFavourites } = useContext(FavouriteContext);
+
+  const isFavourite = favouritesList.some((fav) => fav.id === movie.id);
+
+  function handleToggleFav() {
+    toggleFavourites(movie);
+  }
 
   return (
     <div className="movie-container">
@@ -22,7 +27,9 @@ function MovieCard({ movie }) {
       </Link>
 
       <div className="movie-wrapper">
-        <button className="addToFavourites-btn">♡</button>
+        <button className="addToFavourites-btn" onClick={handleToggleFav}>
+          {isFavourite ? "❤️" : "♡"}
+        </button>
       </div>
     </div>
   );
