@@ -46,7 +46,7 @@ function Movies() {
       <div className="movies-container">
         {filteredMovies.map((movie) => {
           return (
-            <div key={movie.id} className="movie-path">
+            <div key={movie.id} className="movie-container">
               <MovieCard movie={movie} />
             </div>
           );
