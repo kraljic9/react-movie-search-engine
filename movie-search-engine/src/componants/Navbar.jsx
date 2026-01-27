@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function NavBar({ search, setSearch }) {
   return (
     <>
-      <nav>
+      <nav className="nav-bar">
         <div className="logo">
           <p>Movie Search Engine</p>
         </div>
@@ -17,8 +17,22 @@ function NavBar({ search, setSearch }) {
         />
 
         <div className="links">
-          <Link to="movies">Movies</Link>
-          <Link to="favourites">Favourites</Link>
+          <NavLink
+            to="movies"
+            className={({ isActive }) =>
+              isActive ? "active-link" : "inactive-link"
+            }
+          >
+            Movies
+          </NavLink>
+          <NavLink
+            to="favourites"
+            className={({ isActive }) =>
+              isActive ? "active-link" : "inactive-link"
+            }
+          >
+            Favourites
+          </NavLink>
         </div>
       </nav>
     </>
