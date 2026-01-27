@@ -26,12 +26,12 @@ function MovieCard({ movie }) {
           <p className="movie-title">{movie.title}</p>
           <p className="movie-year">{movie.release_date}</p>
         </div>
+        <div className="movie-wrapper"></div>
       </Link>
 
       <button className="addToFavourites-btn" onClick={handleToggleFav}>
         {isFavourite ? "❤️" : "🤍"}
       </button>
-      <div className="movie-wrapper"></div>
     </div>
   );
 }
