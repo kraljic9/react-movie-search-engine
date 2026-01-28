@@ -15,7 +15,14 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route index element={<p>Welcome and enjoy our moives!</p>} />
+              <Route
+                index
+                element={
+                  <p className="default-main-content">
+                    Welcome and enjoy our moives!
+                  </p>
+                }
+              />
               <Route path="movies" element={<Movies />} />
               <Route path="movies/:id" element={<Movie />} />
               <Route path="favourites" element={<Favourites />} />
