@@ -107,14 +107,14 @@ body {
   position: absolute;
   top: 0;
   background-color: black;
-  opacity: 50%;
+  opacity: 0;
   height: 800px;
   width: 100%;
-  display: none;
+  transition: opacity 0.3s ease;
 }
 
 .movie-container:hover .movie-wrapper {
-  display: block;
+  opacity: 0.5;
 }
 
 .addToFavourites-btn {
