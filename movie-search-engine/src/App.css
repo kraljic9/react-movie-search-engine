@@ -57,14 +57,22 @@ body {
   gap: 10px;
 }
 
-/* Movie container */
+/* Movies container */
 .movie-container {
   background-color: black;
   color: hsl(0, 0, 90%);
   position: relative;
 }
 
-/* Movie info */
+.default-main-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 2.5rem;
+}
+
+/* Movies info */
 .movie-info {
   text-decoration: none;
   color: white;
@@ -81,7 +89,7 @@ body {
   font-size: 1.4rem;
 }
 
-/* Movie image */
+/* Movies image */
 
 .movie-img {
   object-fit: cover;
@@ -93,7 +101,7 @@ body {
   height: 800px;
 }
 
-/* Movie Button */
+/* Movies Button */
 
 .movie-wrapper {
   position: absolute;
@@ -119,4 +127,51 @@ body {
   margin: 10px;
   top: 0;
   z-index: 1;
+}
+
+/* Movie Page */
+
+.movie-page-container {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.movie-name {
+  font-size: 2rem;
+}
+
+.movie-overview {
+  width: 600px;
+  margin-bottom: 10px;
+}
+
+.movie-image {
+  width: 350px;
+}
+
+.info-container {
+  display: flex;
+  gap: 4px;
+  font-weight: bold;
+}
+
+.movie-release-date {
+  color: hsl(192, 95%, 68%);
+  font-weight: 100;
+}
+
+.movie-popularity {
+  color: hsl(192, 95%, 68%);
+  font-weight: 100;
+}
+
+.movie-runtime {
+  color: hsl(192, 95%, 68%);
+  font-weight: 100;
+}
+
+.movie-genres {
+  color: hsl(192, 95%, 68%);
+  font-weight: 100;
 }
