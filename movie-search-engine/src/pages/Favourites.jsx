@@ -10,13 +10,13 @@ function Favourites() {
   }, [favouritesList]);
 
   return (
-    <>
+    <div className="movies-container">
       {favouritesList.map((fav) => (
         <div key={fav.id}>
           <MovieCard movie={fav} />
         </div>
       ))}
-    </>
+    </div>
   );
 }
 
