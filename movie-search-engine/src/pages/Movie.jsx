@@ -41,7 +41,7 @@ function Movie() {
   }, [id]);
   function renderGenres() {
     return movieData?.genres?.map((genre) => (
-      <span key={genre.id}>{genre.name}</span>
+      <span key={genre.id}>{genre.name} </span>
     ));
   }
 
@@ -49,20 +49,37 @@ function Movie() {
 
   if (error) return <h1>Error accured {error}</h1>;
 
+  console.log(movieData);
+
   return (
-    <>
+    <div className="movie-page-container">
       <img
         src={`https://image.tmdb.org/t/p/w500${movieData?.poster_path}`}
         alt={movieData?.title}
+        className="movie-image"
       />
 
-      <h1>{movieData?.title}</h1>
-      <p>{movieData?.overview}</p>
-      <p>{movieData?.release_date}</p>
-      <p>{movieData?.popularity} views</p>
-
-      <div>{renderGenres()}</div>
-    </>
+      <div className="info">
+        <h1 className="movie-name">{movieData?.title}</h1>
+        <p className="movie-overview">{movieData?.overview}</p>
+        <span className="info-container">
+          Release date:
+          <p className="movie-release-date">{movieData?.release_date}</p>
+        </span>
+        <span className="info-container">
+          Popularity:{" "}
+          <p className="movie-popularity">{movieData?.popularity} views</p>
+        </span>
+        <span className="info-container">
+          Duration:
+          <p className="movie-runtime"> {movieData?.runtime} minutes</p>
+        </span>
+        <span className="info-container">
+          Genres:
+          <div className="movie-genres">{renderGenres()}</div>
+        </span>
+      </div>
+    </div>
   );
 }
 
